@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  data_tier:
+    image: postgres:14.4-alpine                     # TODO! Check latest version
+    container_name: data_tier
+    restart: always
+    environment:
+      - POSTGRES_DB=my_db                           # TODO! Change into the project's db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres13240!
+      - PGDATA=/var/lib/postgresql/data/
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data/
+    expose:
+    - 5432
+    ports:
+    - 5432:5432
+
+  app_tier:
+    container_name: app_tier
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./backend/docker
+    environment:
+      - DATABASE_URI=postgresql+asyncpg://postgres:postgres13240!@postgres_db:5432/my_db  # TODO!
+      - ENV=DEV
+      - JWT_TOKEN_PREFIX=Token-16Chars-long                                               # TODO!
+      - SECRET_KEY=Secret-16Chars-long                                                    # TODO!
+    volumes:
+      - ./backend:/usr/src/app
+    expose:
+      - 8000
+    ports:
+      - 8000:8000
+    depends_on:
+      - data_tier
+
+volumes:
+  postgresql_data:

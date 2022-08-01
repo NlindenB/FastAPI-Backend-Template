@@ -23,19 +23,19 @@ RUN apt-get update \
 
 # Install Python dependencies
 RUN pip install --upgrade pip
-COPY ./requirements/requirements.txt ./requirements/requirements-dev.txt ./
-RUN pip install -r requirements/requirements.txt \
-  && pip install -r requirements/requirements-dev.txt
+COPY ./requirements.txt ./requirements-dev.txt ./
+RUN pip install -r requirements.txt \
+  && pip install -r requirements-dev.txt
 
 # Copy all files
 COPY . .
 
 # Add the file entrypoint.sh
-COPY ./docker/entrypoint.sh .
-RUN chmod +x /usr/src/app/docker/entrypoint.sh
+COPY ./entrypoint.sh .
+RUN chmod +x /usr/src/app/entrypoint.sh
 
 # Execute entrypoint.sh
-ENTRYPOINT ["/usr/src/app/docker/entrypoint.sh"]
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 
 # Start up the backend server
 CMD alembic upgrade head \

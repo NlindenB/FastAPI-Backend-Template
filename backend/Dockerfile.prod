@@ -24,8 +24,8 @@ RUN apt-get update \
 
 # Install python dependencies
 RUN pip install --upgrade pip
-COPY ./requirements/requirements.txt .
-RUN pip install -r requirements/requirements.txt
+COPY ./requirements-prod.txt .
+RUN pip install -r requirements-prod.txt
 
 
 # Add app

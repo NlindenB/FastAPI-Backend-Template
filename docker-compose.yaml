@@ -22,7 +22,7 @@ services:
     restart: always
     build:
       dockerfile: Dockerfile
-      context: ./backend/docker
+      context: ./backend
     environment:
       - DATABASE_URI=postgresql+asyncpg://postgres:postgres13240!@postgres_db:5432/my_db  # TODO!
       - ENV=DEV

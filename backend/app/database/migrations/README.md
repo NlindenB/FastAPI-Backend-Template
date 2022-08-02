@@ -11,6 +11,6 @@
 
 ## 3. Alembic + Docker
 
-- Revision via Docker: `docker exec CONTAINER_NAME alembic revision --autogenerate -m "Initial migration"`
-- Update 1 table via Docker: `docker exec CONTAINER_NAME alembic update head`
-- Update more than 1 table via Docker: `docker exec CONTAINER_NAME alembic update heads`
+- Revision via Docker: `docker-compose exec CONTAINER_NAME alembic revision --autogenerate -m "Initial migration"`
+- Update 1 table via Docker: `docker-compose exec CONTAINER_NAME alembic update head`
+- Update more than 1 table via Docker: `docker-compose exec CONTAINER_NAME alembic update heads`

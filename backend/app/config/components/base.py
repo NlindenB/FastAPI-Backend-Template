@@ -39,7 +39,10 @@ class GlobalSettings(p.BaseSettings):
     SECRET_KEY: str = d.config("SECRET_KEY", cast=str)  # type: ignore
 
     ALLOWED_CREDENTIALS: bool = True
-    ALLOWED_ORIGINS: t.List[str] = ["*"]
+    ALLOWED_ORIGINS: t.List[str] = [
+        "*",
+        "http://localhost@3000",  #! Frontend localhost server
+    ]
     ALLOWED_METHODS: t.List[str] = ["*"]
     ALLOWED_HEADERS: t.List[str] = ["*"]
 

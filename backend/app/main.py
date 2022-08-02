@@ -3,7 +3,7 @@ import uvicorn
 
 from fastapi.middleware.cors import CORSMiddleware as FastAPICORSMiddleware
 
-from app.utils.dashboard.admins import admin
+from app.utils.dashboards.sqladmin import admin
 from app.config.events import start_app_event_handler, terminate_app_event_handler
 from app.config.settings import settings
 

@@ -3,6 +3,22 @@ from app.config.components.environment import Environment
 
 
 class ProdSettings(GlobalSettings):
-    DESCRIPTION: str = "Backend application with production settings"
+    DESCRIPTION: str = """
+    Environment:
+    - Development
+    
+    Project Description
+    - XYZ
+    
+    Team:
+    - XYZ
+    
+    Objectives:
+    - XYZ
+    
+    Techstack:
+    - XYZ
+    
+    """
     DEBUG: bool = False
     ENV: Environment = Environment.PRODUCTION

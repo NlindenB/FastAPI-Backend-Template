@@ -3,6 +3,22 @@ from app.config.components.environment import Environment
 
 
 class DevSettings(GlobalSettings):
-    DESCRIPTION: str = "Backend application with development settings"
+    DESCRIPTION: str = """
+    Environment:
+    - Development
+    
+    Project Description
+    - XYZ
+    
+    Team:
+    - XYZ
+    
+    Objectives:
+    - XYZ
+    
+    Techstack:
+    - XYZ
+    
+    """
     DEBUG: bool = True
     ENV: Environment = Environment.DEVELOPMENT

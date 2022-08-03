@@ -1,15 +1,15 @@
 """
-Base Repository provides the connection attribute for the
-database connection to execute the queries via C.R.U.D. methods.
+Base Repository provides the session attribute for the
+ORM session to execute the queries via C.R.U.D. methods.
 """
 
-from sqlalchemy.ext.asyncio import AsyncConnection
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class BaseRepository:
-    def __init__(self, conn: AsyncConnection) -> None:
-        self._conn = conn
+    def __init__(self, session: AsyncSession) -> None:
+        self._session = session
 
     @property
-    def connection(self) -> AsyncConnection:
-        return self._conn
+    def session(self) -> AsyncSession:
+        return self._session
